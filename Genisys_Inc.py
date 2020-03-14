@@ -74,13 +74,19 @@ class Genisys_Inc:
     def resumen_salida(self, estacionamiento=None):
         """ Resumen de salida """
         if not estacionamiento:
-            estacionamiento = self.estacionamiento
+            estacionamiento = self.estacionamiento.Guardar
         self.conteo_autos()
-        for estacionamiento in Estacionamiento:
+        for Estacionamiento in estacionamiento:
             print("""
-                    Placa: {0} 
+                    Placa: {0}
+                    Marca: {1}
+                    Modelo: {2}
+                    Tipo Vehiculo: {3}
+                    Hora Ingreso: {4}
+                    Estado: {5}
 
-                  """.format(estacionamiento.numero_placa,))
+                  """.format(estacionamiento.numero_placa,estacionamiento.marca,estacionamiento.modelo,
+                              estacionamiento.tipoVehiculo,estacionamiento.valorCincoHoras,estacionamiento.estado == True))
         self.press_enter()
 
     def ganancia(self):
